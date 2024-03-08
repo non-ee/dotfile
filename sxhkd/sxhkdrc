@@ -22,8 +22,13 @@ super + e
 super + shift + s
 	gnome-screenshot -i
 
-# Power-menu
-# super + shift + p
+# Volume
+XF86AudioLowerVolume
+	amixer -q -D pulse sset Master 5%-
+XF86AudioRaiseVolume
+	amixer -q -D pulse sset Master 5%+
+XF86AudioMute
+	amixer -D pulse set Master 1+ toggle
 #
 # bspwm hotkeys
 #
@@ -45,13 +50,20 @@ super + g
 	bspc node -s biggest.local
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
+# super + {t,shift + t,s,f}
+# 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,s,f}
+	bspc node -t \~{pseudo_tiled,floating,fullscreen}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
+
+	
+super + {_,shift + }c
+	bspc node 'focused.floating#{next,prev}.local.!hidden.floating' -f \
+	    || bspc node 'last.local.!focused.!hidden.floating' -f \
+	    || bspc node  'any.local.!focused.!hidden.floating' -f
 
 
 # focus the next/previous desktop in the current monitor

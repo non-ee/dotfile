@@ -110,9 +110,7 @@ end
 screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
-	-- Wallpaper
 	set_wallpaper(s)
-
 	beautiful.at_screen_connect(s)
 end)
 -- }}}
@@ -237,16 +235,6 @@ globalkeys = gears.table.join(
 	end),
 	awful.key({}, "XF86AudioMute", function()
 		awful.util.spawn("amixer -D pulse set Master 1+ toggle", false)
-	end),
-	-- Media Keys
-	awful.key({}, "XF86AudioPlay", function()
-		awful.util.spawn("playerctl play-pause", false)
-	end),
-	awful.key({}, "XF86AudioNext", function()
-		awful.util.spawn("playerctl next", false)
-	end),
-	awful.key({}, "XF86AudioPrev", function()
-		awful.util.spawn("playerctl previous", false)
 	end)
 )
 
