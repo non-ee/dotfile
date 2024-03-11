@@ -49,9 +49,9 @@ myawesomemenu = {
 			hotkeys_popup.show_help(nil, awful.screen.focused())
 		end,
 	},
-	{ "manual", terminal .. " -e man awesome" },
+	{ "manual",      terminal .. " -e man awesome" },
 	{ "edit config", editor_cmd .. " " .. awesome.conffile },
-	{ "restart", awesome.restart },
+	{ "restart",     awesome.restart },
 	{
 		"quit",
 		function()
@@ -220,10 +220,10 @@ globalkeys = gears.table.join(
 		awful.util.spawn("nemo")
 	end, { description = "File explorer", group = "custom" }),
 	awful.key({ modkey }, "d", function()
-		awful.util.spawn("/home/babyshark/.config/rofi/launcher.sh")
+		awful.util.spawn("/home/babyshark/.config/rofi/launchers/type-3/launcher.sh")
 	end, { description = "Menu launcher", group = "custom" }),
 	awful.key({ modkey, "Shift" }, "p", function()
-		awful.util.spawn("/home/babyshark/.config/rofi/powermenu.sh")
+		awful.util.spawn("/home/babyshark/.config/rofi/powermenu/type-5/powermenu.sh")
 	end, { description = "Power menu ", group = "custom" }),
 
 	-- Volume control
@@ -389,7 +389,7 @@ awful.rules.rules = {
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
 				"ConfigManager", -- Thunderbird's about:config.
-				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
+				"pop-up",    -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
 		properties = { floating = true },

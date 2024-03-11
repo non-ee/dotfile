@@ -7,8 +7,8 @@ super + Return
 	gnome-terminal
 
 # program launcher
-super + {d,shift + p}
-	~/.config/rofi/{launcher.sh,powermenu.sh}
+super + d
+	rofi -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -53,15 +53,15 @@ super + g
 # super + {t,shift + t,s,f}
 # 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 super + {t,s,f}
-	bspc node -t \~{pseudo_tiled,floating,fullscreen}
+	bspc node -t \~{tiled,floating,fullscreen}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 	
-super + {_,shift + }c
-	bspc node 'focused.floating#{next,prev}.local.!hidden.floating' -f \
+super + space 
+	bspc node 'focused.floating#next.local.!hidden.floating' -f \
 	    || bspc node 'last.local.!focused.!hidden.floating' -f \
 	    || bspc node  'any.local.!focused.!hidden.floating' -f
 
@@ -86,11 +86,14 @@ super + shift + {1-9,0}
 super + {u,i}
 	bspc desktop -f {prev,next}.local
 
-# focus next/prev Monitor
+# focus next/prev monitor
 super + {_,shift + }Tab
 	bspc monitor -f {prev,next}
 
-# Move window to 
+# Move window to prev/next workspace
+super + shift + {u,i}
+	bspc node -d {prev,next}
+# Move window to next monitor
 super + o
 	bspc node -m next --follow
 	
