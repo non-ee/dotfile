@@ -5,6 +5,7 @@ awful.layout.layouts = {
 	awful.layout.suit.max,
 	awful.layout.suit.tile,
 	awful.layout.suit.magnifier,
+	awful.layout.suit.floating,
 }
 -- awful.layout.suit.floating,
 -- awful.layout.suit.tile,
