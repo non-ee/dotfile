@@ -8,7 +8,10 @@ super + Return
 
 # program launcher
 super + d
-	rofi -show drun
+	~/.config/rofi/launchers/type-3/launcher.sh
+
+super + shift + p
+	~/.config/rofi/powermenu/type-6/powermenu.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -136,3 +139,8 @@ super + {Left,Down,Up,Right}
 # flip window horizontally/vertically
 alt + ctrl + {h,v}
 	bspc node @/ -F {horizontal,vertical}
+
+
+# Hide window
+super + ctrl + n
+	~/.config/sxhkd/winhide.sh
